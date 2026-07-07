@@ -1,0 +1,10 @@
+.class{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+}
+.class h1{
+    color: black;
+}
