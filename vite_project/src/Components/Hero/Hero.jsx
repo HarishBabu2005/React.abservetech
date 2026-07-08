@@ -2,6 +2,7 @@ import React from "react";
 import right_image from "../../assets/airbnb-hero_right.webp";
 import "./Hero.css";
 import { FiArrowRight } from "react-icons/fi";
+import right_arrow from "../../assets/arrow-right.webp"
 const Hero = () => {
   return (
     <div className="parent">
@@ -24,9 +25,7 @@ const Hero = () => {
         </div>
         <div className="btn">
           <button>
-            <span className="icon">
-              <FiArrowRight />
-            </span>
+           <img src={right_arrow} alt="arrow" className="arrow-right" />
             View Live Demo
           </button>
         </div>
