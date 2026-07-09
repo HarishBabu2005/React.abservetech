@@ -7,6 +7,8 @@ import Student from "./Components/Students/Student"
 import Hero from "./Components/Hero/Hero";
 import Home from "./pages/Home";
 import Counter from "./Components/Counter/Counter";
+import Parent from "./Components/Context-demo/Parent";
+import GrandChild from "./Components/Context-demo/grandChild";
 
 function App() {
   return (
@@ -16,7 +18,9 @@ function App() {
       {/* <Hero/> */}
       {/* <Home /> */}
       
-      <Counter/>
+      {/* <Counter/> */}
+      <Parent name="Harish"/>
+      
 
     </>
   );
