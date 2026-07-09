@@ -3,16 +3,18 @@ import reactLogo from "./assets/react.svg";
 
 import "./App.css";
 
-import Student from "./pages/Student";
+import Student from "./Components/Students/Student"
 import Hero from "./Components/Hero/Hero";
 import Home from "./pages/Home";
 
 function App() {
   return (
     <>
-      {/* <Student/> */}
+      <Student data={["harish","cse","psnacet"]}/>
+      {/* <Student name="sri" dep="ece" clg="klncet"/> */}
       {/* <Hero/> */}
-      <Home />
+      {/* <Home /> */}
+
     </>
   );
 }
