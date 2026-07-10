@@ -9,7 +9,8 @@ import Home from "./pages/Home";
 import Counter from "./Components/Counter/Counter";
 import Parent from "./Components/Context-demo/Parent";
 import GrandChild from "./Components/Context-demo/grandChild";
-import Form from "./Components/Form-demo/Form";
+import Form from "./Components/Form-demo/FormDemo";
+import StudentForm from "./Components/Form-demo/StudentForm";
 
 function App() {
   return (
@@ -21,7 +22,8 @@ function App() {
       
       {/* <Counter/> */}
       {/* <Parent name="Harish"/> */}
-      <Form/>
+      {/* <Form/> */}
+      <StudentForm/>
       
 
     </>
