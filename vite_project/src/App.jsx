@@ -15,6 +15,9 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import DashBoard from "./pages/NestedRoute/DashBoard";
+import Profile from "./pages/NestedRoute/Profile";
+import Setting from "./pages/NestedRoute/Setting";
 
 function App() {
   return (
@@ -35,6 +38,10 @@ function App() {
           <Route path="/contact" element={<Contact />}></Route>
           <Route path="/student/:id" element={<Student/>}></Route>
           <Route path="/*" element={<NotFound/>}/>
+          <Route path="/dashboard" element={<DashBoard/>}>
+              <Route path="profile" element={<Profile/>}></Route>
+              <Route path="setting" element={<Setting/>}></Route>
+          </Route>
         </Routes>
       
     </>
