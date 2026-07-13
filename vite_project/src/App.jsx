@@ -11,6 +11,9 @@ import Parent from "./Components/Context-demo/Parent";
 import GrandChild from "./Components/Context-demo/grandChild";
 import Form from "./Components/Form-demo/FormDemo";
 import StudentForm from "./Components/Form-demo/StudentForm";
+import { Route, Routes } from "react-router-dom";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
 
 function App() {
   return (
@@ -23,7 +26,12 @@ function App() {
       {/* <Counter/> */}
       {/* <Parent name="Harish"/> */}
       {/* <Form/> */}
-      <StudentForm/>
+      {/* <StudentForm/> */}
+      <Routes>
+        <Route path="/" element={<Home/>}></Route>
+        <Route path="/about" element={<About/>}></Route>
+        <Route path="/contact" element={<Contact/>}></Route>
+      </Routes>
       
 
     </>
