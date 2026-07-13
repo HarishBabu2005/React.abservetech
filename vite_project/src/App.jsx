@@ -14,6 +14,7 @@ import StudentForm from "./Components/Form-demo/StudentForm";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
           <Route path="/about" element={<About />}></Route>
           <Route path="/contact" element={<Contact />}></Route>
           <Route path="/student/:id" element={<Student/>}></Route>
+          <Route path="/*" element={<NotFound/>}/>
         </Routes>
       
     </>
