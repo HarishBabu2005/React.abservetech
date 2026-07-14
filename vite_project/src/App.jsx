@@ -18,6 +18,7 @@ import NotFound from "./pages/NotFound";
 import DashBoard from "./pages/NestedRoute/DashBoard";
 import Profile from "./pages/NestedRoute/Profile";
 import Setting from "./pages/NestedRoute/Setting";
+import Users from "./Components/API/Users";
 
 function App() {
   return (
@@ -32,7 +33,7 @@ function App() {
       {/* <Form/> */}
       {/* <StudentForm/> */}
       
-        <Routes>
+        {/* <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/about" element={<About />}></Route>
           <Route path="/contact" element={<Contact />}></Route>
@@ -42,7 +43,8 @@ function App() {
               <Route path="profile" element={<Profile/>}></Route>
               <Route path="setting" element={<Setting/>}></Route>
           </Route>
-        </Routes>
+        </Routes> */}
+        <Users/>
       
     </>
   );
