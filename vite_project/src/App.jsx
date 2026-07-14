@@ -19,6 +19,7 @@ import DashBoard from "./pages/NestedRoute/DashBoard";
 import Profile from "./pages/NestedRoute/Profile";
 import Setting from "./pages/NestedRoute/Setting";
 import Users from "./Components/API/Users";
+import UserForm from "./Components/Form-demo/UserForm";
 
 function App() {
   return (
@@ -44,7 +45,8 @@ function App() {
               <Route path="setting" element={<Setting/>}></Route>
           </Route>
         </Routes> */}
-        <Users/>
+        {/* <Users/> */}
+        <UserForm/>
       
     </>
   );

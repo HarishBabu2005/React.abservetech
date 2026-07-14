@@ -19,6 +19,7 @@ const StudentForm = () => {
    const handleSubmit=(e)=>{
    
     e.preventDefault();
+    
     console.log("Successfully Registered",Student)
     SetStudent({
       name:"",
