@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "./UserForm.css";
+import api from "../API/Axios";
 import { Table } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 const UserForm = () => {
@@ -12,15 +12,15 @@ const UserForm = () => {
   const [store, setStore] = useState([]);
   const [isedit, setIsEdit] = useState(false);
   const [userid, setUserid] = useState(null);
+  const fetchUsers = async () => {
+    const res = await api.get("users/getall");
+    const data = res.data;
+    console.log(data);
+    setStore(data);
+  };
   useEffect(() => {
-    async function getUser() {
-      const res = await axios.get("http://localhost:5000/api/users/getall");
-      const data = res.data;
-      console.log(data);
-      setStore(data);
-    }
-    getUser();
-  }, [userid]);
+    fetchUsers();
+  }, []);
 
   const handleChange = async (e) => {
     const { name, value } = e.target;
@@ -34,21 +34,23 @@ const UserForm = () => {
     e.preventDefault();
     try {
       if (isedit) {
-        const res=await axios.put(`http://localhost:5000/api/users/${userid}`,users);
+        const res = await api.put(
+          `users/${userid}`,
+          users,
+        );
         console.log(res.data);
-        console.log("successfully updated")
+        console.log("successfully updated");
         setUsers({
-          name:"",
-          email:"",
-          age:""
-        })
-        setIsEdit(false)
-        setUserid(null)
-        
-
+          name: "",
+          email: "",
+          age: "",
+        });
+        setIsEdit(false);
+        setUserid(null);
+        fetchUsers();
       } else {
-        const res = await axios.post(
-          "http://localhost:5000/api/users/create",
+        const res = await api.post(
+          "users/create",
           users,
         );
         console.log("Successfully Registered", res.data);
@@ -57,7 +59,7 @@ const UserForm = () => {
           email: "",
           age: "",
         });
-        
+        fetchUsers();
       }
     } catch (e) {
       console.log(e);
@@ -68,8 +70,8 @@ const UserForm = () => {
     try {
       setIsEdit(true);
       console.log("user id", id);
-      const res = await axios.get(
-        `http://localhost:5000/api/users/getbyid/${id}`,
+      const res = await api.get(
+        `users/getbyid/${id}`,
       );
       const data = res.data;
       setUserid(id);
@@ -79,10 +81,26 @@ const UserForm = () => {
         email: data.email,
         age: data.age,
       });
+   
     } catch (e) {
       console.log(e);
     }
   };
+  const handleDelete=async(id)=>{
+    try{
+        const confirmDelete=window.confirm("Are you sure want to delete?")
+        if(confirmDelete){
+          const res=await api.delete(`users/delete/${id}`)
+         
+          fetchUsers()
+        }
+      }
+      catch(e){
+        console.error(e)
+
+      }
+       
+  }
   return (
     <>
       <div>
@@ -139,6 +157,13 @@ const UserForm = () => {
                     onClick={() => handleEdit(user._id)}
                   >
                     Edit
+                  </Button>
+                  <Button
+                    variant="danger"
+                    onClick={() => handleDelete(user._id)}
+                    style={{ marginLeft: "6px" }}
+                  >
+                    Delete
                   </Button>
                 </td>
               </tr>

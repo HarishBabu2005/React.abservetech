@@ -12,7 +12,7 @@ import api from "./Axios"
         //  }
         //  getUsers()
          async function getUsers(){
-              const res=  await api.get("/users")
+              const res=  await api.get("/users/getall")
           const data =res.data
           setUsers(data)
          
